@@ -1,0 +1,47 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "acertar el número",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": [
+                        "cancel"
+                    ]
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": [
+                        "ayuda"
+                    ]
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": [
+                        "dejar de jugar",
+                        "salir",
+                        "stop"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "numeroIntent",
+                    "slots": [
+                        {
+                            "name": "number",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "número",
+                        "{number}"
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
+}
