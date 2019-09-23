@@ -49,11 +49,11 @@ function numberGame(numberPlayer){
   
   const stringPlayer = numberPlayer.toString(); 
   
-  if(stringPlayer === stringRandom){
+  if(stringPlayer == stringRandom){
    return correct();
-  }if(stringPlayer >= stringRandom){
+  }else if(stringPlayer > stringRandom){
     return "Has dicho un número más alto, vuelve a intentarlo.";
-  }else if(stringPlayer <= stringRandom){
+  }else if(stringPlayer < stringRandom){
     return "Has dicho un número más bajo, vuelve a intentarlo.";
   }else{
     return "Error";
