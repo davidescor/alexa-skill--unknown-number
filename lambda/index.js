@@ -4,7 +4,8 @@
 const Alexa = require('ask-sdk');
 
 
-const startVoice = "Bienvenido a la skill de acertar el número. Intenta acertar el número; entre 1 y 100. Di un número:";
+const startVoice = "Bienvenido a la skill, encuentra el número escondido. Intenta averiguar el número entre 1 y 100 que tengo en mente; Di un número:";
+const helpVoice = "Tienes que intentar averiguar el número entre 1 y 100 que tengo en mente. Di un número:";
 
 var numberRandom = Math.floor((Math.random() * 100) + 1);
 var stringRandom = numberRandom.toString();
@@ -52,9 +53,9 @@ function numberGame(numberPlayer){
   if(stringPlayer == stringRandom){
    return correct();
   }else if(stringPlayer > stringRandom){
-    return "Has dicho un número más alto, vuelve a intentarlo.";
+    return "Has dicho un número más alto, vuelve a decir otro número.";
   }else if(stringPlayer < stringRandom){
-    return "Has dicho un número más bajo, vuelve a intentarlo.";
+    return "Has dicho un número más bajo, vuelve a decir otro número.";
   }else{
     return "Error";
   }
@@ -68,10 +69,23 @@ function correct(){
   numberRandom = Math.floor((Math.random() * 100) + 1);
   stringRandom = numberRandom.toString();
 
-  return "Correcto, has encertado el número "+correctNumber+". Puedes continuar jugando hasta acertar el nuevo número, si prefieres dejar de jugar, solo tienes decir salir.";
+  return "Has acertado el número "+correctNumber+". Puedes continuar jugando hasta averiguar el nuevo número, si prefieres dejar de jugar, solo tienes decir dejar de jugar.";
 }
 
-
+const HelpHandler = {
+  canHandle(handlerInput) {
+    const request = handlerInput.requestEnvelope.request;
+    return request.type === 'IntentRequest'
+      && request.intent.name === 'AMAZON.HelpIntent';
+  },
+  handle(handlerInput) {
+    
+    return handlerInput.responseBuilder
+      .speak(helpVoice)
+      .reprompt(startVoice)
+      .getResponse();
+  },
+};
 
 const ExitHandler = {
   canHandle(handlerInput) {
@@ -83,7 +97,7 @@ const ExitHandler = {
   handle(handlerInput) {
 
     return handlerInput.responseBuilder
-      .speak('Cerrando la Skill de acertar el número, hasta pronto.')
+      .speak('Cerrando la Skill de averiguar el número escondido, hasta pronto.')
       .getResponse();
   },
 };
@@ -112,6 +126,7 @@ exports.handler = skillBuilder
   .addRequestHandlers(
     startHandler,
     gameHandler,
+    HelpHandler,
     ExitHandler
   )
   .addErrorHandlers(ErrorHandler)
