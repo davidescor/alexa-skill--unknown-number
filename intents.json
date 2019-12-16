@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "acertar el número",
+            "invocationName": "número desconocido",
             "intents": [
                 {
                     "name": "AMAZON.CancelIntent",

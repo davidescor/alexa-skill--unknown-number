@@ -4,7 +4,7 @@
 const Alexa = require('ask-sdk');
 
 
-const startVoice = "Bienvenido a la skill, encuentra el número escondido. Intenta averiguar el número entre 1 y 100 que tengo en mente; Di un número:";
+const startVoice = "Bienvenido a la skill, encuentra el número desconocido. Intenta averiguar el número entre 1 y 100 que tengo en mente; Di un número:";
 const helpVoice = "Tienes que intentar averiguar el número entre 1 y 100 que tengo en mente. Di un número:";
 
 var numberRandom = Math.floor((Math.random() * 100) + 1);
@@ -97,7 +97,7 @@ const ExitHandler = {
   handle(handlerInput) {
 
     return handlerInput.responseBuilder
-      .speak('Cerrando la Skill de averiguar el número escondido, hasta pronto.')
+      .speak('Cerrando la Skill de averiguar el número desconocido, hasta pronto.')
       .getResponse();
   },
 };
