@@ -1,4 +1,7 @@
-![alexa-skill-numero-desconocido](https://images-na.ssl-images-amazon.com/images/I/41KAplNgSZL.png)
+
+<p align="center">
+  <img src="https://images-na.ssl-images-amazon.com/images/I/41KAplNgSZL.png">
+</p>
 
 # alexa-skill-numero-desconocido
 
