@@ -4,10 +4,10 @@
 const Alexa = require('ask-sdk');
 
 
-const startVoice = "Bienvenido a la skill, encuentra el número desconocido. Intenta averiguar el número entre 1 y 100 que tengo en mente; Di un número:";
-const helpVoice = "Tienes que intentar averiguar el número entre 1 y 100 que tengo en mente. Di un número:";
+const startVoice = "Bienvenido a la skill, encuentra el número desconocido. Intenta averiguar el número entre 0 y 100 que tengo en mente; Di un número:";
+const helpVoice = "Tienes que intentar averiguar el número entre 0 y 100 que tengo en mente. Di un número:";
 
-var numberRandom = Math.floor((Math.random() * 100) + 1);
+var numberRandom = Math.floor((Math.random() * 100) + 0);
 var stringRandom = numberRandom.toString();
 
 
@@ -50,14 +50,16 @@ function numberGame(numberPlayer){
   
   const stringPlayer = numberPlayer.toString(); 
   
-  if(stringPlayer == stringRandom){
-   return correct();
-  }else if(stringPlayer > stringRandom){
-    return "Has dicho un número más alto, vuelve a decir otro número.";
-  }else if(stringPlayer < stringRandom){
-    return "Has dicho un número más bajo, vuelve a decir otro número.";
+  if(stringPlayer < 0 || stringPlayer > 100){
+    return "Has dicho un número inferior a 0 o superior a 100, tienes que decir un número entre 0 y 100, vuelve a decir otro número.";
   }else{
-    return "Error";
+    if(stringPlayer == stringRandom){
+     return correct();
+    }else if(stringPlayer > stringRandom){
+      return "Has dicho un número más alto, vuelve a decir otro número."+stringRandom;
+    }else if(stringPlayer < stringRandom){
+      return "Has dicho un número más bajo, vuelve a decir otro número."+stringRandom;
+    }
   }
   
 }
@@ -66,7 +68,7 @@ function numberGame(numberPlayer){
 function correct(){
 
   const correctNumber = stringRandom;
-  numberRandom = Math.floor((Math.random() * 100) + 1);
+  numberRandom = Math.floor((Math.random() * 100) + 0);
   stringRandom = numberRandom.toString();
 
   return "Has acertado el número "+correctNumber+". Puedes continuar jugando hasta averiguar el nuevo número, si prefieres dejar de jugar, solo tienes decir dejar de jugar.";
