@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="https://images-na.ssl-images-amazon.com/images/I/41KAplNgSZL.png">
+  <img src="https://images-na.ssl-images-amazon.com/images/I/51qvuR+IhGL.png">
 </p>
 
 # alexa-skill-numero-desconocido
