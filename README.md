@@ -3,7 +3,7 @@
   <img src="https://images-na.ssl-images-amazon.com/images/I/51qvuR+IhGL.png">
 </p>
 
-# alexa-skill-numero-desconocido
+# alexa-skill--unknown-number
 
 Skiil for alexa, in which you have to try to hit a number between 1 and 100.
 
